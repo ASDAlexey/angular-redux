@@ -10,13 +10,12 @@ import { INCREMENT } from './actions';
 })
 export class AppComponent {
   title = 'app works!';
-  @select((s) => s.get('counter')) count;
+  @select(s => s.get('counter')) count;
 
   constructor(private ngRedux: NgRedux<Map<string, any>>) {
   }
 
   increment() {
-    // this.counter++;
     this.ngRedux.dispatch({ type: INCREMENT });
   }
 }
